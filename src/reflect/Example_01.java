@@ -10,7 +10,7 @@ public class Example_01 {
 		this.string = string;
 		this.i = i;
 	}
-	public Example_01(String... string) {
+	public Example_01(String... string) throws NumberFormatException {
 		if (0 < string.length) {
 			i = Integer.valueOf(string[0]);
 		}

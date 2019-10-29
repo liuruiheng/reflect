@@ -21,6 +21,33 @@ public class Main_01 {
 			for (int j = 0; j < parameterTypes.length; j++) {
 				System.out.println(parameterTypes[j]);
 			}
+			Class<?>[] exceptionTypes = constructor.getExceptionTypes();
+			System.out.println("该构造方法可能抛出的异常类型为：");
+			for (int j = 0; j < exceptionTypes.length; j++) {
+				System.out.println("\"" + exceptionTypes[j] + "\"");
+			}
+			Example_01 example2 = null;
+			while (example2 == null) {
+				try {
+					if (i == 2) {
+						example2 = (Example_01)constructor.newInstance();
+					}
+					if (i == 1) {
+						example2 = (Example_01)constructor.newInstance("100",1);
+					}
+					if (i == 0) {
+						Object[] objects = new Object[] {new String[] {"100","200","300"}};
+						example2 = (Example_01)constructor.newInstance(objects);
+					}
+				} catch (Exception e) {
+					// TODO: handle exception
+					System.out.println("在创建对象时抛出异常，下面执行setAccessible()方法");
+					declaredConstructors[i].setAccessible(true);
+				}
+			}
+			if (example2 != null) {
+				example2.print();
+			}
 		}
 	}
 
