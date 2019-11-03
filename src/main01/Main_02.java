@@ -18,11 +18,24 @@ public class Main_02 {
 			while (isTurn) {
 				try {
 					isTurn = false;
+					System.out.println("修改前的值为：" + field.get(example));
 					if (fieldType.equals(int.class)) {
 						System.out.println("利用方法setInt()修改成员变量的值");
 						field.setInt(example, 6666);
 					}
-					System.out.println("修改前的值为：" + field.get(example));
+					if (fieldType.equals(float.class)) {
+						System.out.println("利用方法setFloat()修改成员变量的值");
+						field.setFloat(example, 6666.666F);
+					}
+					if (fieldType.equals(boolean.class)) {
+						System.out.println("利用方法setBoolean()修改成员变量的值");
+						field.setBoolean(example, true);
+					}
+					if (fieldType.equals(String.class)) {
+						System.out.println("利用方法set()修改成员变量的值");
+						field.set(example, "QAZ");
+					}
+					System.out.println("修改后的值为：" + field.get(example));
 				} catch (Exception e) {
 					System.out.println("在设置成员变量时抛出异常，"
 							+ "下面执行setAccessible()方法");
