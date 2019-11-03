@@ -2,8 +2,6 @@ package main01;
 
 import java.lang.reflect.Constructor;
 
-import reflect.Example_01;
-
 public class Main_01 {
 
 	public static void main(String[] args) {
